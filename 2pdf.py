@@ -16,8 +16,8 @@ colors = [BLUE, RED, YELLOW, MAGENTA, GREEN]
 
 def choose(index):
     lists = ["url", "file", "string", "multi"]
-    entry = input(f"Enter {lists[index - 1]} to \
-convert[www.xxxx.com/https://xxxx.org]:>>> ")
+    entry = input(f"Enter {lists[index - 1]} \
+to convert[www.xxxx.com/https://xxxx.org]:>>> ")
 
     save = input("Save as:>>> ")
     test = Option(entry, save)
