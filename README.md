@@ -1,7 +1,3 @@
-# 2-PDF
-files and texts to PDF converter
-
-
 ### Install: 
 ```bash
 pip3 install -r requirements.txt
