@@ -1,15 +1,14 @@
 # 2-PDF
 files and texts to PDF converter
 
-##### Type the following
-### Requirements:
+
+### Install: 
+```bash
+pip3 install -r requirements.txt
 ```
-# apt install python3
-# apt install python3-pip
-# pip3 install pdfkit
-```
-And run the script
-```
+
+### Usage:
+```bash
 # python3 2pdf.py
 ```
 ENJOY!!!
