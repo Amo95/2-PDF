@@ -13,14 +13,54 @@ BLUE, RED, WHITE, YELLOW, MAGENTA, GREEN, END = (
 
 colors = [BLUE, RED, YELLOW, MAGENTA, GREEN]
 
+def duplicate(list1, list2, objects, dictionary):
+    for e in range(1, 5):
+        print(f"Enter {list1[e]} <{list2[e]}>: ", end="")
+        inp = input()
+    objects.others(dictionary)
+
+def advanceOption(objects):
+    default = {
+        'page-size': 'A4',
+        'margin-top': '0.75in',
+        'margin-right': '0.75in',
+        'margin-bottom': '0.75in',
+        'margin-left': '0.75in'
+        }
+    empty = []
+    for l in range(5):
+        print(dedent("""
+            Enter {} <{}>: """.format(list(default.keys())[l],
+                list(default.values())[l])), end="")
+        inp = input()
+        empty.append(inp)
+
+        if inp == "":
+            duplicate(list(default.keys()), list(default.values()), objects, default)
+            stop()
+
+    print(empty)
+    entry = {
+        list(default.keys())[0]: empty[0],
+        list(default.keys())[1]: empty[1],
+        list(default.keys())[2]: empty[2],
+        list(default.keys())[3]: empty[3],
+        list(default.keys())[4]: empty[4]
+        }
+    objects.others(entry)
+
 
 def choose(index):
-    lists = ["url", "file", "string", "multi"]
+    lists = ["url", "file", "strings", "multi-urls", "others",]
     entry = input(f"Enter {lists[index - 1]} \
 to convert[www.xxxx.com/https://xxxx.org]:>>> ")
 
     save = input("Save as:>>> ")
     test = Option(entry, save)
+
+    if lists[index - 1] == "others":
+        advanceOption(test)
+
     # animation line
     symbol = "."
     print(colors[random.randint(0, len(colors)) - 1])
@@ -41,7 +81,7 @@ to convert[www.xxxx.com/https://xxxx.org]:>>> ")
             test.url()
         elif lists[index - 1] == "file":
             test.files()
-        elif lists[index - 1] == "multi":
+        elif lists[index - 1] ==  "multi":
             pass
         else:
             pass
@@ -49,6 +89,7 @@ to convert[www.xxxx.com/https://xxxx.org]:>>> ")
         print('\033[91m' + "Wrong url, retry!!..." + '\033[0m')
 
     main()
+
 
 
 def clear():
@@ -105,20 +146,16 @@ def retry():
 
 
 def main():
-
-    print(dedent("""
-            SELECT OPTION TO CONVERT
-            [1] URL
-            [2] FILE
-            [3] STRINGS
-            [4] MULTIPLE CHOICE
-            [5] Quit"""))
+    print("SELECT OPTION TO CONVERT")
+    lists = ["URL", "FILE", "STRINGS", "MULTI-URLs", "OTHERS", "Quit"]
+    for i, l in enumerate(lists, start=1):
+        print(f"{i}: {l}")
 
     try:
         enter = int(input("\nEnter Option:>>> "))
 
         time.sleep(1)
-        if enter in (1, 2, 4):
+        if enter in (1, 2, 4, 5):
             choose(enter)
 
         elif enter == 3:
@@ -137,7 +174,7 @@ def main():
             test = Option(entry, save)
             test.string()
 
-        elif str(enter) == "5":
+        elif str(enter) == "6":
             stop()
 
         else:
