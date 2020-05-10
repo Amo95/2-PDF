@@ -1,11 +1,12 @@
-### Install: 
+# Install: 
+#### Credits: [JazzCore](https://github.com/JazzCore)
 
 ## LINUX
-Debian/Ubuntu
+#### Debian/Ubuntu
 pip3 install -r requirements.txt
 apt-get install wkhtmltopdf
 
-Fedora
+#### Fedora
 yum install wkhtmltopdf
 
 
