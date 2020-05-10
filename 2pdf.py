@@ -200,12 +200,18 @@ if __name__ == "__main__":
                 time.sleep(1)
                 main()
 
-            except:
+            except KeyboardInterrupt:
+                stop()
+
+            except EOFError:
                 stop()
     else:
         clear()
         try:
             time.sleep(1)
             main()
-        except:
-            stop()
+        except KeyboardInterrupt:
+                stop()
+
+        except EOFError:
+            stop()    
