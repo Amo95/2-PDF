@@ -9,7 +9,7 @@ pip3 install -r requirements.txt && apt-get install wkhtmltopdf
 
 #### Fedora
 ```bash
-yum install wkhtmltopdf
+pip3 install -r reqiurements.txt && yum install wkhtmltopdf
 ```
 
 
