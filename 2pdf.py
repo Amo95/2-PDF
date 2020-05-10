@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-from pdfclass import Option
+from pdf.pdfclass import Option
 from textwrap import dedent
 import os
+import sys
 import time
 import random
+import subprocess
 
 BLUE, RED, WHITE, YELLOW, MAGENTA, GREEN, END = (
     '\33[94m', '\033[91m',
@@ -65,7 +67,7 @@ to convert[www.xxxx.com/https://xxxx.org]:>>> ")
     symbol = "."
     print(colors[random.randint(0, len(colors)) - 1])
     while len(symbol) < 10:
-        os.system("clear")
+        clear()
         # loading admin input form/session
         print(
             colors[random.randint(0, len(colors)) - 1]
@@ -93,7 +95,10 @@ to convert[www.xxxx.com/https://xxxx.org]:>>> ")
 
 
 def clear():
-    os.system("clear")
+    if sys.platform == "linux" or sys.platform == "linux2":
+        subprocess.call("clear", shell=True)
+    else:
+        subprocess.call("cls", shell=True)
 
 
 def stop():
@@ -140,7 +145,7 @@ def stop():
 
 
 def retry():
-    os.system("clear")
+    clear()
     print(RED + "Wrong Entry!! retry..." + END)
     main()
 
@@ -185,17 +190,22 @@ def main():
 
 
 if __name__ == "__main__":
-    if os.getuid() == 0:
-        print("Do not run this as ROOT!!")
+    if os.name == "posix":
+        if os.getuid() == 0:
+            print("Do not run this as ROOT!!")
 
+        else:
+            clear()
+            try:
+                time.sleep(1)
+                main()
+
+            except:
+                stop()
     else:
         clear()
         try:
             time.sleep(1)
             main()
-
-        except KeyboardInterrupt:
-            stop()
-
-        except EOFError:
+        except:
             stop()
