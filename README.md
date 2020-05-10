@@ -26,7 +26,7 @@ Download the disk image from [wkhtmltopdf downloads list](http://wkhtmltopdf.org
 brew install Caskroom/cask/wkhtmltopdf
 ```
 
-# USAGE
+## Usage
 ```bash
 cd 2-PDF
 python3 2pdf.py
