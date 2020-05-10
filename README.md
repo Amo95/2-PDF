@@ -3,8 +3,7 @@
 
 ## Linux
 #### Debian/Ubuntu
-pip3 install -r requirements.txt
-apt-get install wkhtmltopdf
+pip3 install -r requirements.txt && apt-get install wkhtmltopdf
 
 #### Fedora
 yum install wkhtmltopdf
