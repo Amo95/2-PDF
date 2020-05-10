@@ -3,10 +3,14 @@
 
 ## Linux
 #### Debian/Ubuntu
+```bash
 pip3 install -r requirements.txt && apt-get install wkhtmltopdf
+```
 
 #### Fedora
+```bash
 yum install wkhtmltopdf
+```
 
 
 ## Windows
